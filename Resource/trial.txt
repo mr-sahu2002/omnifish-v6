@@ -1,0 +1,98 @@
+/*
+.header-new .sub-header {
+    background-color: #fff;
+    padding: 25px 0;
+    height: 80px;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+div {
+    display: block;
+}
+.header-new {
+    background-color: #eaeaea;
+    position: relative;
+    height: 230px;
+    font-family: Lato,sans-serif!important;
+    z-index: 105;
+}
+style attribute {
+    --theme-color: #e41d36;
+}
+
+@media only screen and (min-width: 0){
+html {
+    font-size: 14px;
+}
+html {
+    line-height: 1.5;
+    font-family: Roboto,sans-serif;
+    font-weight: 400;
+    color: rgba(0,0,0,.87);
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+}
+*/
+
+
+ <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="resource/img/licious-logo.svg">
+            </div>
+
+            <div class="location"></div>
+
+            <div class="search">
+                <input type="text">
+            </div>
+
+            <div class="login"></div>
+            
+            <div class="cart"></div>
+        </div>>
+    </header>
+
+
+    /* HEADER & NAVBAR*/
+header{
+    background-color: rgb(252, 228, 228);
+}
+
+.navbar{
+    display: flex;
+    justify-items: left;
+}
+
+.logo{
+    
+    size: 1in;
+}
+
+.location{
+
+}
+
+.search{
+
+}
+
+.login{
+
+}
+
+.cart{
+
+}
