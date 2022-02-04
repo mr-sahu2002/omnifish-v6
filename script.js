@@ -123,16 +123,16 @@ class UI{
           //save cart in local storage
           Storage.saveCart(cart);
           //set cart values
-          this.saveCartvalues(cart);
+          this.setCartvalues(cart);
           //display cart items
           this.addCartItem(cartItem);
-          //show the cart
+          //show the cart 
           this.showCart();
         })
       }
     });
   }
-  saveCartvalues(cart){
+  setCartvalues(cart){
     let tempTotal=0;
     let itemsTotal=0;
     cart.map(item => {
@@ -140,7 +140,7 @@ class UI{
       itemsTotal += item.amount;
     });
     cartTotal.innerText= parseFloat(tempTotal.toFixed(2))
-    cartItems.innerText=itemsTotal;
+    cartItems.innerText = itemsTotal;
   }
 
   addCartItem(item){
@@ -151,7 +151,7 @@ class UI{
           <div>
             <h4>${item.title}</h4>
             <h5>₹${item.price}</h5>
-            <span class="remove-item">remove</span>
+            <span class="remove-item" data-id=${item.id}>remove</span>
         </div>
 
         <div>
@@ -169,7 +169,7 @@ class UI{
   //set app the card for showing and hidding cart
   setupApp(){
     cart=Storage.getCart();
-    this.saveCartvalues(cart);
+    this.setCartvalues(cart);
     this.populateCart(cart);
     cartBtn.addEventListener('click', this.showCart);
     closeCartBtn.addEventListener('click', this.hideCart);
@@ -203,7 +203,7 @@ class UI{
          let tempItem= cart.find(item => item.id === id);
          tempItem.amount= tempItem.amount +1;
          Storage.saveCart(cart);
-         this.saveCartvalues(cart);
+         this.setCartvalues(cart);
          addAmount.nextElementSibling.innerText= tempItem.amount;
        }
        else if(event.target.classList.contains("fa-chevron-down")){
@@ -213,7 +213,7 @@ class UI{
           tempItem.amount= tempItem.amount -1;
           if(tempItem.amount > 0){
             Storage.saveCart(cart);
-            this.saveCartvalues(cart);
+            this.setCartvalues(cart);
             lowerAmount.previousElementSibling.innerText=tempItem.amount;
           }
           else{
@@ -230,12 +230,12 @@ class UI{
        while(cartContent.children.length> 0){
          cartContent.removeChild(cartContent.children[0]);
          //hide cart after clearing the cart
-         this.hideCart();
-       }
+        }
+       this.hideCart();
     }
     removeItem(id){
       cart= cart.filter(item => item.id !==id);
-      this.saveCartvalues(cart);
+      this.setCartvalues(cart);
       Storage.saveCart(cart);
       let button= this.getSingleButton(id);
       button.disabled=false;
@@ -247,7 +247,7 @@ class UI{
     }
 }
 
-//local storage
+//----------------------------local storage------------------------//
 class Storage{
   static saveProducts(products){
     localStorage.setItem("products",JSON.stringify(products))
@@ -266,10 +266,10 @@ class Storage{
   }
 }
 
-//eventlistner
+//-----------------------------eventlistner---------------------------//
 document.addEventListener("DOMContentLoaded",()=>{
   const ui= new UI();
-  const products=new Products(); 
+  const products= new Products(); 
   ui.setupApp();
 
 //get all products
