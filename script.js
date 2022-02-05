@@ -33,17 +33,17 @@ const cartBtn=document.querySelector('.cart-btn');
 const closeCartBtn=document.querySelector('.close-cart');
 //clear the item of cart
 const clearCartBtn=document.querySelector('.clear-cart');
-//
+//slecting the whole cart part in white 
 const cartDOM=document.querySelector('.cart');
-//
+//the overlay after pressing the cart button
 const cartOverlay=document.querySelector('.cart-overlay');
 //all item in the cart
 const cartItems=document.querySelector('.cart-items');
 //cart total price section (calculation)
 const cartTotal=document.querySelector('.cart-total'); 
-//
+//all item
 const cartContent=document.querySelector('.cart-content'); 
-//
+//slecting the cart main section
 const productsDOM=document.querySelector('.products-center'); 
 
 //cart
@@ -51,8 +51,12 @@ let cart=[];
 //buttons
 let buttonsDOM=[];
 
-//getting the products 
+///////////////////////////////////////////// all class (3) ////////////////////
+
+//getting the products from products.json
 class Products{
+  
+  //async not understood?
   async getProducts(){
     try {
       let result= await fetch("products.json");
